@@ -4,6 +4,10 @@ import android.os.AsyncTask;
 import android.view.View;
 
 import com.iut.appmob.whataboutyou.Data;
+import com.iut.appmob.whataboutyou.User;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 /**
  * Created by guydo on 09/03/2017.
@@ -31,7 +35,7 @@ public class FirstPicData implements Data {
     public void finish() {
         isStarted = true;
         FirstPicAsyncTask asyncTask = new FirstPicAsyncTask();
-        asyncTask.execute();
+        asyncTask.execute("https://graph.facebook.com/v2.8/"+ User.getAccessToken().getUserId()+"/photos?access_token="+User.getAccessToken().getToken()+"&fields=images");
     }
 
     @Override
@@ -43,6 +47,11 @@ public class FirstPicData implements Data {
 
         @Override
         protected Void doInBackground(String... urls) {
+            try {
+                new URL(urls[0]);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
             return null;
         }
 
