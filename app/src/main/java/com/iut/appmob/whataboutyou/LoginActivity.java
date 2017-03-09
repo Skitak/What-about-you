@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
         FacebookSdk.sdkInitialize(getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
         LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
-        loginButton.setReadPermissions("email");
+        loginButton.setReadPermissions("email", "public_profile");
         // Other app specific specialization
 
         // Callback registration
@@ -30,7 +30,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 // App code
+                Log.d("test", loginResult.toString());
+                User.setAccessToken(loginResult.getAccessToken()); // save the access token
+                Log.d("test", User.getAccessToken().toString());
                 Log.d("test", "Succes");
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
             }
 
             @Override
