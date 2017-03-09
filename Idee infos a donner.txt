@@ -1,6 +1,7 @@
-Première photo
+Photo de profil					// https://graph.facebook.com/v2.8/me/picture?access_token=...
+Première photo					// https://graph.facebook.com/v2.8/me/photos?access_token=...
 Qui peut acceder à vos infos
-Première personne ami
+Première personne ami				
 Photo avec le plus de commentaires
 Photo avec le plus de like
 Dernier partage
