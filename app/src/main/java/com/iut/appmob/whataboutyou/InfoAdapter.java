@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import com.iut.appmob.whataboutyou.data.BuzzData;
 import com.iut.appmob.whataboutyou.data.FirstPicData;
+import com.iut.appmob.whataboutyou.data.FriendCount;
 import com.iut.appmob.whataboutyou.data.InfoPersoData;
 import com.iut.appmob.whataboutyou.data.SharedData;
 import com.iut.appmob.whataboutyou.data.StatData;
@@ -18,7 +19,7 @@ import java.util.List;
  */
 
 public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.ViewHolder> {
-    private static final int FIRST_PIC = 0, INFO_PERSO = 1, BUZZ = 2, SHARED = 3, STAT = 4;
+    private static final int FIRST_PIC = 0, INFO_PERSO = 1, BUZZ = 2, SHARED = 3, STAT = 4, FRIEND_COUNT = 5;
     private List<Data> dataList;
 
     public InfoAdapter(List<Data> d) {
@@ -37,6 +38,8 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.ViewHolder> {
             return SHARED;
         else if (dataList.get(position) instanceof StatData)
             return STAT;
+        else if (dataList.get(position) instanceof FriendCount)
+            return FRIEND_COUNT;
         else
             return -1;
     }
@@ -53,6 +56,8 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.ViewHolder> {
             return null;
         else if (viewType == STAT)
             return null;
+        else if ((viewType == FRIEND_COUNT))
+            return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.data_item_friendcount, parent, false));
         else
             return null;
     }

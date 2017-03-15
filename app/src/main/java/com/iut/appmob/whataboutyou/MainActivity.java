@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.iut.appmob.whataboutyou.data.FirstPicData;
+import com.iut.appmob.whataboutyou.data.FriendCount;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         data = new ArrayList<Data>();
 
         data.add(new FirstPicData());
+
+        data.add(new FriendCount());
 
         infoAdapter = new InfoAdapter(data);
 
