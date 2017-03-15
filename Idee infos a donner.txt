@@ -9,3 +9,6 @@ Premier partage
 Nombre d'heures sur facebook
 Personne avec lequel il a le plus parlé
 Nombres d'amis					https://graph.facebook.com/v2.8/me?fields=friends&access_token=...
+
+Nombre de photos de profil:
+me/albums?fields=photo_count,name,photos{images}		// name ---> "Profile Pictures"
