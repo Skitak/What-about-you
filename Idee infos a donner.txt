@@ -1,10 +1,11 @@
 Photo de profil					// https://graph.facebook.com/v2.8/me/picture?access_token=...
-Première photo					// https://graph.facebook.com/v2.8/me/photos?access_token=...
+Première photo					// https://graph.facebook.com/v2.8/me/photos?fields=can_delete,imagesaccess_token=...
 Qui peut acceder à vos infos
 Première personne ami				
 Photo avec le plus de commentaires
 Photo avec le plus de like
-Dernier partage
+Dernier partage					https://graph.facebook.com/v2.8/me?fields=feed{story,full_picture,caption,description,comments{comment_count}}
 Premier partage
 Nombre d'heures sur facebook
 Personne avec lequel il a le plus parlé
+Nombres d'amis					https://graph.facebook.com/v2.8/me?fields=friends&access_token=...
