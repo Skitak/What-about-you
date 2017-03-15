@@ -45,6 +45,15 @@
             android:text="amis sur facebook"
             android:visibility="invisible" />
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:visibility="invisible" />
+
     </RelativeLayout>
 
 </LinearLayout>

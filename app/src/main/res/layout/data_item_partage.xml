@@ -10,6 +10,27 @@
         android:layout_height="match_parent"
         android:layout_weight="0.21">
 
+        <ProgressBar
+            android:id="@+id/progressBarBottom"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignLeft="@+id/progressBarTop"
+            android:layout_alignStart="@+id/progressBarTop"
+            android:layout_below="@+id/imageButton"
+            android:layout_marginTop="11dp"
+            android:visibility="invisible" />
+
+        <ProgressBar
+            android:id="@+id/progressBarTop"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignTop="@+id/imageView3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:visibility="invisible" />
+
         <ImageButton
             android:id="@+id/imageButton"
             android:layout_width="wrap_content"
