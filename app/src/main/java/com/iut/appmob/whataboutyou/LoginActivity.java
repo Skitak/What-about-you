@@ -14,7 +14,8 @@ import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
 public class LoginActivity extends AppCompatActivity {
-    CallbackManager callbackManager;
+    private CallbackManager callbackManager;
+    private LoginButton loginButton ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
             startMainActivity(u);
 
         callbackManager = CallbackManager.Factory.create();
-        LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
+        loginButton = (LoginButton) findViewById(R.id.login_button);
         loginButton.setReadPermissions("email", "public_profile", "user_photos");
         // Other app specific specialization
 
@@ -56,6 +57,14 @@ public class LoginActivity extends AppCompatActivity {
         User.setAccessToken(u);
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onRestart(){
+        super.onRestart();
+        if(User.getAccessToken() != null){
+            loginButton.performClick();
+        }
     }
 
     @Override
