@@ -67,7 +67,7 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.ViewHolder> {
         return dataList.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         private Data d;
 
         public ViewHolder(View v) {
@@ -77,12 +77,6 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.ViewHolder> {
         public void bind(Data data) {
             d = data;
             data.bind(super.itemView);
-        }
-
-        @Override
-        public void onClick(View v) {
-            if (!d.isFinished() && !d.isStarted())
-                d.finish();
         }
     }
 }

@@ -1,29 +1,31 @@
 package com.iut.appmob.whataboutyou.data;
 
-import android.os.AsyncTask;
+import android.support.v7.widget.AppCompatImageButton;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.HttpMethod;
 import com.iut.appmob.whataboutyou.Data;
+import com.iut.appmob.whataboutyou.R;
 import com.iut.appmob.whataboutyou.User;
-
-import java.net.MalformedURLException;
-import java.net.URL;
 
 /**
  * Created by guydo on 09/03/2017.
  */
 
-public class FirstPicData implements Data {
+public class FirstPicData implements Data , View.OnClickListener{
+
     private boolean isFinished = false, isStarted = false;
-    private View itemView;
-
-    public FirstPicData() {
-
-    }
+    private AppCompatImageButton refresh;
+    private LinearLayout layout;
+    private ProgressBar progressBar;
 
     @Override
     public boolean isFinished() {
-        return false;
+        return isFinished;
     }
 
     @Override
@@ -34,34 +36,38 @@ public class FirstPicData implements Data {
     @Override
     public void finish() {
         isStarted = true;
-        FirstPicAsyncTask asyncTask = new FirstPicAsyncTask();
-        asyncTask.execute("https://graph.facebook.com/v2.8/"+ User.getAccessToken().getUserId()+"/photos?access_token="+User.getAccessToken().getToken()+"&fields=images");
+        new GraphRequest(
+                User.getAccessToken(),
+                "/photos?fields=id",
+                null,
+                HttpMethod.GET,
+                new GraphRequest.Callback() {
+                    public void onCompleted(GraphResponse response) {
+                        response.getJSONObject();
+                        isFinished = true;
+                    }
+                }
+        ).executeAsync();
     }
 
     @Override
     public void bind(View v) {
-        itemView = v;
+        progressBar = (ProgressBar) v.findViewById(R.id.progressBarFirstPic);
+        layout = (LinearLayout) v.findViewById(R.id.firstPicLayout);
+        refresh = (AppCompatImageButton) v.findViewById(R.id.refreshBtnFirstPic);
+        refresh.setOnClickListener(this);
     }
 
-    private static class FirstPicAsyncTask extends AsyncTask<String, Integer, Void> {
-
-        @Override
-        protected Void doInBackground(String... urls) {
-            try {
-                new URL(urls[0]);
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        protected void onProgressUpdate(Integer... progress) {
-
-        }
-
-        @Override
-        protected void onPostExecute(Void v) {
-
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.refreshBtnFirstPic:
+                if (!isFinished() && !isStarted()) {
+                    refresh.setVisibility(View.GONE);
+                    progressBar.setVisibility(View.VISIBLE);
+                    finish();
+                }
+                break;
         }
     }
 }

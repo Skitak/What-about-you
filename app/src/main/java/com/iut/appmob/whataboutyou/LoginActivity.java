@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -20,9 +21,13 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         FacebookSdk.sdkInitialize(getApplicationContext());
+        AccessToken u = AccessToken.getCurrentAccessToken();
+        if(u != null)
+            startMainActivity(u);
+
         callbackManager = CallbackManager.Factory.create();
         LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
-        loginButton.setReadPermissions("email", "public_profile");
+        loginButton.setReadPermissions("email", "public_profile", "user_photos");
         // Other app specific specialization
 
         // Callback registration
@@ -31,11 +36,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onSuccess(LoginResult loginResult) {
                 // App code
                 Log.d("test", loginResult.toString());
-                User.setAccessToken(loginResult.getAccessToken()); // save the access token
-                Log.d("test", User.getAccessToken().toString());
-                Log.d("test", "Succes");
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
+                startMainActivity(loginResult.getAccessToken());
+
             }
 
             @Override
@@ -48,6 +50,12 @@ public class LoginActivity extends AppCompatActivity {
                 Log.d("test", "Erreur");
             }
         });
+    }
+
+    private void startMainActivity(AccessToken u) {
+        User.setAccessToken(u);
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 
     @Override
