@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1">
+    android:orientation="vertical"
+    android:weightSum="1"
+    app:cardCornerRadius="2dp"
+    app:cardElevation="@dimen/cardview_default_elevation">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -24,14 +27,14 @@
             android:id="@+id/editText2"
             android:layout_width="500px"
             android:layout_height="300px"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Votre première photo de profil"
-            android:visibility="invisible"
             android:layout_alignBottom="@+id/imageButton"
             android:layout_alignLeft="@+id/editText3"
             android:layout_alignStart="@+id/editText3"
-            android:layout_marginBottom="45dp" />
+            android:layout_marginBottom="45dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Votre première photo de profil"
+            android:visibility="invisible" />
 
         <EditText
             android:id="@+id/editText3"
