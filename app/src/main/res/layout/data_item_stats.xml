@@ -6,44 +6,30 @@
     app:cardBackgroundColor="#FFFFFF"
     app:cardCornerRadius="2dp"
     app:cardElevation="@dimen/cardview_default_elevation">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <LinearLayout
-            android:id="@+id/firstPicLayout"
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/layoutStatPic"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:visibility="gone"
-            android:weightSum="10">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="Voici votre dernière photo sur facebook" />
-            <android.support.v7.widget.AppCompatImageView
-                android:id="@+id/firstPicImgView"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="4"
-                android:scaleType="fitCenter" />
+            android:visibility="gone">
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="Voici votre première photo sur facebook" />
+                android:layout_height="wrap_content"
+                android:text="Vous avez comme nombre de photos de profile : " />
 
-            <android.support.v7.widget.AppCompatImageView
-                android:id="@+id/lastPicImgView"
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="4"
-                android:scaleType="fitCenter" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <android.support.v7.widget.AppCompatImageButton
-            android:id="@+id/refreshBtnFirstPic"
+            android:id="@+id/refreshBtnStatPic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
