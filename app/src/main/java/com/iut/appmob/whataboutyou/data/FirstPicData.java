@@ -70,7 +70,7 @@ public class FirstPicData implements Data , View.OnClickListener{
     public void bind(View v) {
         layout = (LinearLayout) v.findViewById(R.id.firstPicLayout);
         firstPic = (AppCompatImageView) v.findViewById(R.id.firstPicImgView);
-        refresh = 
+        refresh = (AppCompatImageButton) v.findViewById(R.id.refreshBtnFirstPic) ;
         refresh.setOnClickListener(this);
     }
 
