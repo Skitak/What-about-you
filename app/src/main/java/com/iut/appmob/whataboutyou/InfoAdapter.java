@@ -55,7 +55,7 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.ViewHolder> {
         else if (viewType == SHARED)
             return null;
         else if (viewType == STAT)
-            return null;
+            return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.data_item_stats, parent, false));
         else if ((viewType == FRIEND_COUNT))
             return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.data_item_friendcount, parent, false));
         else
