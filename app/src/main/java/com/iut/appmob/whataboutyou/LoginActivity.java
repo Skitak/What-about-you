@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
 
         callbackManager = CallbackManager.Factory.create();
         loginButton = (LoginButton) findViewById(R.id.login_button);
-        loginButton.setReadPermissions("email", "public_profile", "user_photos");
+        loginButton.setReadPermissions("email", "public_profile", "user_photos", "user_friends");
         // Other app specific specialization
 
         // Callback registration

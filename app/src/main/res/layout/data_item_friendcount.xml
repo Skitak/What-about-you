@@ -23,30 +23,33 @@
             android:elevation="4dp"
             android:src="@android:drawable/ic_search_category_default" />
 
-        <EditText
-            android:id="@+id/editText2"
+        <TextView
+            android:id="@+id/nbfriend"
             android:layout_width="500px"
             android:layout_height="300px"
-            android:layout_alignBottom="@+id/imageButton"
-            android:layout_alignLeft="@+id/editText3"
-            android:layout_alignStart="@+id/editText3"
-            android:layout_marginBottom="45dp"
+            android:layout_alignLeft="@+id/text"
+            android:layout_alignStart="@+id/text"
+            android:layout_centerVertical="true"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Votre première photo de profil"
+            android:textAlignment="center"
+            android:textColor="#F00"
+            android:textSize="24sp"
+            android:textStyle="bold"
             android:visibility="invisible" />
 
-        <EditText
-            android:id="@+id/editText3"
+        <TextView
+            android:id="@+id/text"
             android:layout_width="500px"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageButton"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="29dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="amis sur facebook"
-            android:visibility="invisible" />
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:visibility="invisible"
+            android:layout_below="@+id/progressBar"
+            android:layout_centerHorizontal="true" />
 
         <ProgressBar
             android:id="@+id/progressBar"
